@@ -1,20 +1,13 @@
 export const experiences = [
   {
-    id: 1,
-    title: 'Software Engineer I',
-    company: "Teton Private Ltd.",
-    duration: "(Jan 2022 - Present)"
-  },
-  {
-    id: 2,
-    title: "FullStack Developer",
-    company: "Fiverr (freelance)",
-    duration: "(Jun 2021 - Jan 2022)"
-  },
-  {
-    id: 3,
-    title: "Self Employed",
-    company: "Code and build something in everyday.",
-    duration: "(Jan 2018 - Present)"
+    title: 'Associate Data Engineer Intern',
+    company: 'Quantrail Data',
+    duration: '(Apr 2025 - Present)',
+    location: 'Chennai, Tamil Nadu, India · Remote',
+    responsibilities: [
+      'Developed real-time data pipelines and analytics using ClickHouse and Python to optimize data workflows.',
+      'Collaborated with the engineering team to build scalable solutions for big data systems.',
+      'Utilized SQL to enhance data processing efficiency and accuracy in a remote environment.'
+    ]
   }
-]
+];

@@ -1,20 +1,20 @@
 export const educations = [
   {
     id: 1,
-    title: "Bachelor Degree",
-    duration: "2020 - Present",
-    institution: "National University of Bangladesh",
+    title: "Bachelor's Degree, Computer Science and Engineering",
+    duration: "Oct 2021 - May 2025",
+    institution: "Rajalakshmi Engineering College",
+    grade: "7.56 CGPA (Up to Semester 7)",
+    description:
+      "Built a strong foundation in core CS concepts with hands-on experience in data analysis, software development, and problem solving. Participated in national-level hackathons and developed real-world projects focused on automation, productivity, and web development. Gained practical skills in Python, SQL, Power BI, and agile collaboration through academic and extracurricular work."
   },
   {
     id: 2,
-    title: "Higher Secondary Certificate",
-    duration: "2018 - 2020",
-    institution: "Noakhali Islamia Kamil Madrasah",
-  },
-  {
-    id: 3,
-    title: "Secondary School Certificate",
-    duration: "2008 - 2018",
-    institution: "Baitus Saif Islamia Madrasah",
+    title: "High School Diploma, Science Stream",
+    duration: "Jun 2019 - May 2021",
+    institution: "International Indian School, Jeddah",
+    grade: "86.4%",
+    description:
+      "Completed 11th and 12th grade with Mathematics and Computer Science as core subjects. Gained foundational knowledge in Python programming, along with strong skills in problem-solving, logical reasoning, and data interpretation. Actively participated in school-level academic and tech-related events."
   }
-]
+];
