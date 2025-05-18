@@ -165,7 +165,7 @@ export const personalData = {
  // stackOverflow: "https://stackoverflow.com/users/16840768/abu-said",
   leetcode: "https://leetcode.com/u/mohhddhassan/",
   devUsername: "mohhddhassan",
-  resume: "...",
+  resume: "https://drive.google.com/file/d/1eD9WcQmp7tewUDfJgUJ9-UcOzCW7LFU4/view?usp=drive_link",
 };
 ```
 
