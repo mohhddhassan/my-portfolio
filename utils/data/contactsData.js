@@ -5,7 +5,7 @@ export const contactsData = {
     github: 'https://github.com/mohhddhassan',
     // facebook: 'https://www.facebook.com/abusaid.riyaz/',
     linkedIn: 'https://www.linkedin.com/in/hussainmohhdd',
-    //twitter: 'https://twitter.com/said7388',
-    // stackOverflow: 'https://stackoverflow.com/users/16840768/abu-said',
+    twitter: 'https://x.com/mohhddhassan',
+    stackOverflow: 'https://stackoverflow.com/users/30571527/mohamed-hussain-s',
     devUsername: "mohhddhassan"
 }
