@@ -26,7 +26,7 @@ export const experiences = [
     title: 'Hackathon Team Lead',
     company: 'TechQuest - MedRem',
     duration: '(Apr 2024)',
-    location: 'St. Josephs University, Bangalore',
+    location: 'St. Joseph\'s University, Bangalore',
     responsibilities: [
       'Led a 3-member team to develop a medication reminder app under 24 hours.',
       'Took charge of backend integration, time-boxed MVP planning, and delivery.',
