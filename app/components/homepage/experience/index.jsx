@@ -1,11 +1,16 @@
 // @flow strict
-
+"use client";
+import dynamic from "next/dynamic";
 import { experiences } from "@/utils/data/experience";
 import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
 import experience from '../../../assets/lottie/code.json';
-import AnimationLottie from "../../helper/animation-lottie";
 import GlowCard from "../../helper/glow-card";
+
+// Dynamic import of AnimationLottie with SSR disabled
+const AnimationLottie = dynamic(() => import("../../helper/animation-lottie"), {
+  ssr: false,
+});
 
 function Experience() {
   return (
@@ -32,51 +37,47 @@ function Experience() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           <div className="flex justify-center items-start">
             <div className="w-full h-full">
+              {/* Client-only rendering of Lottie animation */}
               <AnimationLottie animationPath={experience} />
             </div>
           </div>
 
           <div>
             <div className="flex flex-col gap-6">
-              {
-                experiences.map((experience, index) => (
-                  <GlowCard key={`${experience.id}-${index}`} identifier={`experience-${experience.id}`}>
-                    <div className="p-3 relative">
-                      <Image
-                        src="/blur-23.svg"
-                        alt="Hero"
-                        width={1080}
-                        height={200}
-                        className="absolute bottom-0 opacity-80"
-                      />
-                      <div className="flex justify-center">
-                        <p className="text-xs sm:text-sm text-[#16f2b3]">
-                          {experience.duration}
-                        </p>
+              {experiences.map((experienceItem, index) => (
+                <GlowCard
+                  key={`${experienceItem.id}-${index}`}
+                  identifier={`experience-${experienceItem.id}`}
+                >
+                  <div className="p-3 relative">
+                    <Image
+                      src="/blur-23.svg"
+                      alt="Hero"
+                      width={1080}
+                      height={200}
+                      className="absolute bottom-0 opacity-80"
+                    />
+                    <div className="flex justify-center">
+                      <p className="text-xs sm:text-sm text-[#16f2b3]">{experienceItem.duration}</p>
+                    </div>
+                    <div className="flex items-center gap-x-8 px-3 py-5">
+                      <div className="text-violet-500 transition-all duration-300 hover:scale-125">
+                        <BsPersonWorkspace size={36} />
                       </div>
-                      <div className="flex items-center gap-x-8 px-3 py-5">
-                        <div className="text-violet-500  transition-all duration-300 hover:scale-125">
-                          <BsPersonWorkspace size={36} />
-                        </div>
-                        <div>
-                          <p className="text-base sm:text-xl mb-2 font-medium">
-                            {experience.title}
-                          </p>
-                          <p className="text-sm sm:text-base text-gray-300">
-                            {experience.company}
-                          </p>
-                        </div>
+                      <div>
+                        <p className="text-base sm:text-xl mb-2 font-medium">{experienceItem.title}</p>
+                        <p className="text-sm sm:text-base text-gray-300">{experienceItem.company}</p>
                       </div>
                     </div>
-                  </GlowCard>
-                ))
-              }
+                  </div>
+                </GlowCard>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Experience;
