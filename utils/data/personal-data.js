@@ -5,7 +5,7 @@ export const personalData = {
   description: "Associate Data Engineer Intern at Quantrail Data, where I'm building real-time analytics dashboards and scalable data pipelines using ClickHouse and Python. From demand prediction (AutoTrend) to healthcare apps (MedRem), I enjoy crafting data-driven solutions and shipping smart backend logic. I thrive in hackathons, love clean code, and believe learning should never stop. Let's build what matters. 🚀",
   email: 'mohhddhassan@gmail.com',
   phone: '+91 77088 67386',
-  address: 'Chennai, Tamil Nadu, India ',
+  address: 'Chennai, India ',
   github: 'https://github.com/mohhddhassan',
   facebook: 'https://www.facebook.com/abusaid.riyaz/',
   linkedIn: 'https://www.linkedin.com/in/hussainmohhdd/',

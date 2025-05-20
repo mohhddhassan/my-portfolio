@@ -4,7 +4,7 @@ import { personalData } from "@/utils/data/personal-data";
 import Image from "next/image";
 import Link from "next/link";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
+import { FaFacebook, FaStackOverflow } from 'react-icons/fa';
 import { MdDownload } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
 import { SiLeetcode } from "react-icons/si";
@@ -32,13 +32,6 @@ function HeroSection() {
 
           <div className="my-12 flex items-center gap-5">
             <Link
-              href={personalData.github}
-              target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <BsGithub size={30} />
-            </Link>
-            <Link
               href={personalData.linkedIn}
               target='_blank'
               className="transition-all text-pink-500 hover:scale-125 duration-300"
@@ -46,11 +39,18 @@ function HeroSection() {
               <BsLinkedin size={30} />
             </Link>
             <Link
-              href={personalData.facebook}
+              href={personalData.github}
               target='_blank'
               className="transition-all text-pink-500 hover:scale-125 duration-300"
             >
-              <FaFacebook size={30} />
+              <BsGithub size={30} />
+            </Link>
+            <Link
+              href={personalData.stackOverflow}
+              target='_blank'
+              className="transition-all text-pink-500 hover:scale-125 duration-300"
+            >
+              <FaStackOverflow size={30} />
             </Link>
             <Link
               href={personalData.leetcode}
@@ -59,13 +59,7 @@ function HeroSection() {
             >
               <SiLeetcode size={30} />
             </Link>
-            <Link
-              href={personalData.twitter}
-              target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <FaTwitterSquare size={30} />
-            </Link>
+
           </div>
 
           <div className="flex items-center gap-3">
