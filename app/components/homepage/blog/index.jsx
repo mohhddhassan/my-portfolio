@@ -28,7 +28,7 @@ function Blog({ blogs }) {
 
       {noBlogs ? (
         <div className="text-center text-[#d3d8e8] text-sm md:text-base lg:text-lg py-12 px-4">
-          <p className="mb-4">I'm currently working on writing blog posts where I'll share my learning journey, project insights, and tech tips.</p>
+          <p className="mb-4">I&apos;m currently working on writing blog posts where I&apos;ll share my learning journey, project insights, and tech tips.</p>
           <p>Stay tuned!</p>
         </div>
       ) : (
