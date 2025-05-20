@@ -2,6 +2,7 @@
 
 import { skillsData } from "@/utils/data/skills";
 import Marquee from "react-fast-marquee";
+import Image from 'next/image'
 
 function Skills() {
   return (
@@ -47,7 +48,7 @@ function Skills() {
                 </div>
                 <div className="flex flex-col items-center justify-center gap-3 p-6">
                   <div className="h-8 sm:h-10">
-                    <img
+                    <Image
                       src={`/images/skills/${skill.toLowerCase().replace(/\s+/g, '')}.svg`}
                       alt={skill}
                       width={40}
