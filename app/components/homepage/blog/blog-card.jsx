@@ -21,7 +21,7 @@ function BlogCard({ blog }) {
       </div>
       <div className="p-2 sm:p-3 flex flex-col">
         <div className="flex justify-between items-center text-[#16f2b3] text-sm">
-          <p>{timeConverter(blog.published_at)}</p>
+          {/* <p>{timeConverter(blog.published_at)}</p> */}
           <div className="flex items-center gap-3">
             <p className="flex items-center gap-1">
               <BsHeartFill />
