@@ -15,7 +15,7 @@
 
 ![](./public/image/screen.png)
 
-## View live preview [here](https://abusaid.netlify.app/).
+## View live preview [here](https://my-portfolio-git-main-mohamed-hussain-ss-projects.vercel.app/).
 
 ---
 
