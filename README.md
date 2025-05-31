@@ -15,7 +15,7 @@ This portfolio is designed to be user-friendly and easily customizable, making i
 
 # Demo :movie_camera:
 
-[here][Portfolio Demo](./public/demo/portfolio.gif)
+[Portfolio Demo](public/demo/porfolio.gif)
 
 ## View live preview [here](https://my-portfolio-git-main-mohamed-hussain-ss-projects.vercel.app/)
 
