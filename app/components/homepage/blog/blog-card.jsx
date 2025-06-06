@@ -1,4 +1,6 @@
 // @flow strict
+"use client";
+
 import { timeConverter } from '@/utils/time-converter';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,23 +11,28 @@ import { useState } from 'react';
 function BlogCard({ blog }) {
   const [imageError, setImageError] = useState(false);
 
-  const fallbackImage = '/images/fallback-blog.jpg'; // Add this image to your public folder
-
   return (
-    <div className="border border-[#1d293a] hover:border-[#464c6a] transition-all duration-500 bg-[#1b203e] rounded-2xl relative group flex flex-col justify-between h-full">
-      <div className="h-44 lg:h-52 w-full overflow-hidden rounded-t-2xl">
-        <Image
-          src={imageError ? fallbackImage : blog?.cover_image}
-          onError={() => setImageError(true)}
-          height={1080}
-          width={1920}
-          alt={blog.title || "Blog cover"}
-          className="h-full w-full object-cover group-hover:scale-105 transition-all duration-300"
-        />
+    <div className="border border-[#1d293a] hover:border-[#464c6a] transition-all duration-500 bg-[#1b203e] rounded-lg relative group shadow-md hover:shadow-violet-600/20">
+      <div className="h-44 lg:h-52 w-auto cursor-pointer overflow-hidden rounded-t-lg">
+        {!imageError ? (
+          <Image
+            src={blog?.cover_image}
+            height={1080}
+            width={1920}
+            alt={blog.title}
+            onError={() => setImageError(true)}
+            className="h-full w-full object-cover group-hover:scale-110 transition-all duration-300"
+          />
+        ) : (
+          <div className="flex items-center justify-center h-full bg-[#0f1629] text-white text-sm">
+            image no longer exists
+          </div>
+        )}
       </div>
 
-      <div className="p-3 flex flex-col flex-grow">
-        <div className="flex justify-between items-center text-[#16f2b3] text-xs sm:text-sm">
+      <div className="p-2 sm:p-3 flex flex-col">
+        <div className="flex justify-between items-center text-[#16f2b3] text-sm">
+          {/* <p>{timeConverter(blog.published_at)}</p> */}
           <div className="flex items-center gap-3">
             <p className="flex items-center gap-1">
               <BsHeartFill />
@@ -41,20 +48,20 @@ function BlogCard({ blog }) {
         </div>
 
         <Link target="_blank" href={blog.url}>
-          <p className="mt-2 mb-1 cursor-pointer text-white text-base sm:text-lg font-semibold hover:text-violet-400 line-clamp-2">
+          <p className="my-2 lg:my-3 cursor-pointer text-lg text-white sm:text-xl font-medium hover:text-violet-500">
             {blog.title}
           </p>
         </Link>
 
-        <p className="text-xs text-[#16f2b3] mb-2">{`${blog.reading_time_minutes} Min Read`}</p>
+        <p className="mb-2 text-sm text-[#16f2b3]">{`${blog.reading_time_minutes} Min Read`}</p>
 
-        <p className="text-sm text-[#d3d8e8] line-clamp-3 mb-4">
+        <p className="text-sm lg:text-base text-[#d3d8e8] pb-3 lg:pb-6 line-clamp-3">
           {blog.description}
         </p>
 
-        <div className="mt-auto">
+        <div>
           <Link target="_blank" href={blog.url}>
-            <button className="bg-violet-500 hover:bg-violet-600 transition-all text-white px-4 py-1.5 rounded-full text-xs shadow-sm">
+            <button className="bg-violet-500 hover:bg-violet-600 transition px-3 py-1.5 rounded-full text-xs text-white">
               Read More
             </button>
           </Link>
