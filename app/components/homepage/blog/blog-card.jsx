@@ -9,8 +9,6 @@ import { FaCommentAlt } from 'react-icons/fa';
 import { useState } from 'react';
 
 function BlogCard({ blog }) {
-  if (!blog) return null; // Prevent rendering if blog is undefined
-
   const [imageError, setImageError] = useState(false);
 
   return (
@@ -18,12 +16,12 @@ function BlogCard({ blog }) {
 
       {/* IMAGE */}
       <div className="h-32 sm:h-36 lg:h-40 w-full cursor-pointer overflow-hidden rounded-t-lg">
-        {!imageError && blog?.cover_image ? (
+        {!imageError ? (
           <Image
-            src={blog.cover_image}
+            src={blog?.cover_image}
             height={1080}
             width={1920}
-            alt={blog.title || 'Blog cover'}
+            alt={blog.title}
             onError={() => setImageError(true)}
             className="h-full w-full object-cover group-hover:scale-105 transition-all duration-300 border-b border-[#1d293a]"
           />
@@ -42,7 +40,7 @@ function BlogCard({ blog }) {
           <div className="flex items-center gap-3">
             <p className="flex items-center gap-1">
               <BsHeartFill />
-              <span>{blog.public_reactions_count ?? 0}</span>
+              <span>{blog.public_reactions_count}</span>
             </p>
             {blog.comments_count > 0 && (
               <p className="flex items-center gap-1">
@@ -54,31 +52,23 @@ function BlogCard({ blog }) {
         </div>
 
         {/* Title */}
-        {blog.title && (
-          <Link target="_blank" href={blog.url || '#'}>
-            <p className="my-2 lg:my-2 cursor-pointer text-base sm:text-lg text-white font-medium hover:text-violet-500 leading-snug line-clamp-2">
-              {blog.title}
-            </p>
-          </Link>
-        )}
+        <Link target="_blank" href={blog.url}>
+          <p className="my-2 lg:my-2 cursor-pointer text-base sm:text-lg text-white font-medium hover:text-violet-500 leading-snug line-clamp-2">
+            {blog.title}
+          </p>
+        </Link>
 
         {/* Read Time */}
-        {typeof blog.reading_time_minutes === 'number' && (
-          <p className="mb-2 text-sm text-[#16f2b3]">
-            {`${blog.reading_time_minutes} Min Read`}
-          </p>
-        )}
+        <p className="mb-2 text-sm text-[#16f2b3]">{`${blog.reading_time_minutes} Min Read`}</p>
 
         {/* Description */}
-        {blog.description && (
-          <p className="text-sm lg:text-base text-[#d3d8e8] pb-3 lg:pb-6 line-clamp-2">
-            {blog.description}
-          </p>
-        )}
+        <p className="text-sm lg:text-base text-[#d3d8e8] pb-3 lg:pb-6 line-clamp-2">
+          {blog.description}
+        </p>
 
         {/* Read More Button */}
         <div>
-          <Link target="_blank" href={blog.url || '#'}>
+          <Link target="_blank" href={blog.url}>
             <button className="bg-violet-500 hover:bg-violet-600 transition px-3 py-1.5 rounded-full text-xs text-white">
               Read More
             </button>
