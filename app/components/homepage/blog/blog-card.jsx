@@ -13,9 +13,7 @@ function BlogCard({ blog }) {
 
   return (
     <div className="border border-[#1d293a] hover:border-[#464c6a] transition-all duration-500 bg-[#1b203e] rounded-lg relative group shadow-md hover:shadow-violet-600/20">
-
-      {/* IMAGE */}
-      <div className="h-32 sm:h-36 lg:h-40 w-full cursor-pointer overflow-hidden rounded-t-lg">
+      <div className="h-44 lg:h-52 w-auto cursor-pointer overflow-hidden rounded-t-lg">
         {!imageError ? (
           <Image
             src={blog?.cover_image}
@@ -23,7 +21,7 @@ function BlogCard({ blog }) {
             width={1920}
             alt={blog.title}
             onError={() => setImageError(true)}
-            className="h-full w-full object-cover group-hover:scale-105 transition-all duration-300 border-b border-[#1d293a]"
+            className="h-full w-full object-cover group-hover:scale-110 transition-all duration-300"
           />
         ) : (
           <div className="flex items-center justify-center h-full bg-[#0f1629] text-white text-sm">
@@ -32,11 +30,8 @@ function BlogCard({ blog }) {
         )}
       </div>
 
-      {/* CONTENT */}
       <div className="p-2 sm:p-3 flex flex-col">
-
-        {/* Reactions & Comments */}
-        <div className="flex justify-between items-center text-[#16f2b3] text-sm mb-1">
+        <div className="flex justify-between items-center text-[#16f2b3] text-sm">
           <div className="flex items-center gap-3">
             <p className="flex items-center gap-1">
               <BsHeartFill />
@@ -51,22 +46,28 @@ function BlogCard({ blog }) {
           </div>
         </div>
 
-        {/* Title */}
         <Link target="_blank" href={blog.url}>
-          <p className="my-2 lg:my-2 cursor-pointer text-base sm:text-lg text-white font-medium hover:text-violet-500 leading-snug line-clamp-2">
+          <p className="my-2 lg:my-3 cursor-pointer text-lg text-white sm:text-xl font-medium hover:text-violet-500">
             {blog.title}
           </p>
         </Link>
 
-        {/* Read Time */}
         <p className="mb-2 text-sm text-[#16f2b3]">{`${blog.reading_time_minutes} Min Read`}</p>
 
-        {/* Description */}
-        <p className="text-sm lg:text-base text-[#d3d8e8] pb-3 lg:pb-6 line-clamp-2">
+        <p
+          className="text-sm lg:text-base text-[#d3d8e8] pb-3 lg:pb-6"
+          style={{
+            display: '-webkit-box',
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+            lineHeight: '1.4em',
+            maxHeight: '3.5em' // 2.5 lines at 1.4em each
+          }}
+        >
           {blog.description}
         </p>
 
-        {/* Read More Button */}
         <div>
           <Link target="_blank" href={blog.url}>
             <button className="bg-violet-500 hover:bg-violet-600 transition px-3 py-1.5 rounded-full text-xs text-white">
@@ -74,7 +75,6 @@ function BlogCard({ blog }) {
             </button>
           </Link>
         </div>
-
       </div>
     </div>
   );
