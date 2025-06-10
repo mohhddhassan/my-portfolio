@@ -12,7 +12,7 @@ function BlogCard({ blog }) {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <div className="border border-[#1d293a] hover:border-[#464c6a] transition-all duration-500 bg-[#1b203e] rounded-lg relative group shadow-md hover:shadow-violet-600/20">
+    <div className="border border-[#1d293a] hover:border-[#464c6a] transition-all duration-500 bg-[#1b203e] rounded-lg relative group shadow-md hover:shadow-violet-600/20 flex flex-col justify-between h-full max-h-[450px]">
 
       {/* IMAGE */}
       <div className="h-32 sm:h-36 lg:h-40 w-full cursor-pointer overflow-hidden rounded-t-lg">
@@ -33,10 +33,10 @@ function BlogCard({ blog }) {
       </div>
 
       {/* CONTENT */}
-      <div className="p-2 sm:p-3 flex flex-col">
+      <div className="p-3 flex flex-col flex-1 justify-between">
 
-        {/* Reactions & Comments */}
-        <div className="flex justify-between items-center text-[#16f2b3] text-sm mb-1">
+        {/* Top: Reactions & Comments */}
+        <div className="flex justify-between items-center text-[#16f2b3] text-sm mb-2">
           <div className="flex items-center gap-3">
             <p className="flex items-center gap-1">
               <BsHeartFill />
@@ -53,23 +53,23 @@ function BlogCard({ blog }) {
 
         {/* Title */}
         <Link target="_blank" href={blog.url}>
-          <p className="my-2 lg:my-2 cursor-pointer text-base sm:text-lg text-white font-medium hover:text-violet-500 leading-snug line-clamp-2">
+          <p className="cursor-pointer text-base sm:text-lg text-white font-medium hover:text-violet-500 leading-snug line-clamp-2 mb-1">
             {blog.title}
           </p>
         </Link>
 
         {/* Read Time */}
-        <p className="mb-2 text-sm text-[#16f2b3]">{`${blog.reading_time_minutes} Min Read`}</p>
+        <p className="text-sm text-[#16f2b3] mb-1">{`${blog.reading_time_minutes} Min Read`}</p>
 
         {/* Description */}
-        <p className="text-sm text-[#d3d8e8] pb-3 line-clamp-2">
+        <p className="text-sm text-[#d3d8e8] line-clamp-2 mb-4">
           {blog.description}
         </p>
 
-        {/* Read More Button */}
-        <div>
+        {/* Bottom: Read More */}
+        <div className="mt-auto">
           <Link target="_blank" href={blog.url}>
-            <button className="bg-violet-500 hover:bg-violet-600 transition px-3 py-1.5 rounded-full text-xs text-white">
+            <button className="bg-violet-500 hover:bg-violet-600 transition px-4 py-1.5 rounded-full text-xs text-white">
               Read More
             </button>
           </Link>
