@@ -9,6 +9,8 @@ import { FaCommentAlt } from 'react-icons/fa';
 import { useState } from 'react';
 
 function BlogCard({ blog }) {
+  if (!blog) return null; // Prevent rendering if blog is undefined
+
   const [imageError, setImageError] = useState(false);
 
   return (
@@ -16,12 +18,12 @@ function BlogCard({ blog }) {
 
       {/* IMAGE */}
       <div className="h-32 sm:h-36 lg:h-40 w-full cursor-pointer overflow-hidden rounded-t-lg">
-        {!imageError ? (
+        {!imageError && blog?.cover_image ? (
           <Image
-            src={blog?.cover_image}
+            src={blog.cover_image}
             height={1080}
             width={1920}
-            alt={blog.title}
+            alt={blog.title || 'Blog cover'}
             onError={() => setImageError(true)}
             className="h-full w-full object-cover group-hover:scale-105 transition-all duration-300 border-b border-[#1d293a]"
           />
@@ -40,7 +42,7 @@ function BlogCard({ blog }) {
           <div className="flex items-center gap-3">
             <p className="flex items-center gap-1">
               <BsHeartFill />
-              <span>{blog.public_reactions_count}</span>
+              <span>{blog.public_reactions_count ?? 0}</span>
             </p>
             {blog.comments_count > 0 && (
               <p className="flex items-center gap-1">
@@ -52,26 +54,31 @@ function BlogCard({ blog }) {
         </div>
 
         {/* Title */}
-        <Link target="_blank" href={blog.url}>
-          <p className="my-2 lg:my-2 cursor-pointer text-base sm:text-lg text-white font-medium hover:text-violet-500 leading-snug line-clamp-2">
-            {blog.title}
-          </p>
-        </Link>
+        {blog.title && (
+          <Link target="_blank" href={blog.url || '#'}>
+            <p className="my-2 lg:my-2 cursor-pointer text-base sm:text-lg text-white font-medium hover:text-violet-500 leading-snug line-clamp-2">
+              {blog.title}
+            </p>
+          </Link>
+        )}
 
         {/* Read Time */}
-        <p className="mb-2 text-sm text-[#16f2b3]">{`${blog.reading_time_minutes} Min Read`}</p>
+        {typeof blog.reading_time_minutes === 'number' && (
+          <p className="mb-2 text-sm text-[#16f2b3]">
+            {`${blog.reading_time_minutes} Min Read`}
+          </p>
+        )}
 
-        {/* Description with fade */}
-        <div className="relative">
-          <p className="text-sm lg:text-base text-[#d3d8e8] pb-3 lg:pb-6 line-clamp-3">
+        {/* Description */}
+        {blog.description && (
+          <p className="text-sm lg:text-base text-[#d3d8e8] pb-3 lg:pb-6 line-clamp-2">
             {blog.description}
           </p>
-          <div className="absolute bottom-3 left-0 w-full h-6 bg-gradient-to-t from-[#1b203e] to-transparent pointer-events-none"></div>
-        </div>
+        )}
 
         {/* Read More Button */}
         <div>
-          <Link target="_blank" href={blog.url}>
+          <Link target="_blank" href={blog.url || '#'}>
             <button className="bg-violet-500 hover:bg-violet-600 transition px-3 py-1.5 rounded-full text-xs text-white">
               Read More
             </button>
