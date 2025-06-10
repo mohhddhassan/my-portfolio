@@ -62,7 +62,7 @@ function BlogCard({ blog }) {
         <p className="mb-2 text-sm text-[#16f2b3]">{`${blog.reading_time_minutes} Min Read`}</p>
 
         {/* Description */}
-        <p className="text-sm lg:text-base text-[#d3d8e8] pb-3 lg:pb-6 line-clamp-2">
+        <p className="text-sm text-[#d3d8e8] pb-3 line-clamp-2">
           {blog.description}
         </p>
 
