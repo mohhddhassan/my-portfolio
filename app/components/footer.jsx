@@ -1,93 +1,41 @@
 // @flow strict
-"use client";
-
-import { timeConverter } from '@/utils/time-converter';
-import Image from 'next/image';
 import Link from 'next/link';
-import { BsHeartFill } from 'react-icons/bs';
-import { FaCommentAlt } from 'react-icons/fa';
-import { useState } from 'react';
+import { CgGitFork } from "react-icons/cg";
+import { IoStar } from "react-icons/io5";
 
-function BlogCard({ blog }) {
-  if (!blog) return null; // Prevent rendering if blog is undefined
-
-  const [imageError, setImageError] = useState(false);
-
+function Footer() {
   return (
-    <div className="border border-[#1d293a] hover:border-[#464c6a] transition-all duration-500 bg-[#1b203e] rounded-lg relative group shadow-md hover:shadow-violet-600/20">
-
-      {/* IMAGE */}
-      <div className="h-32 sm:h-36 lg:h-40 w-full cursor-pointer overflow-hidden rounded-t-lg">
-        {!imageError && blog?.cover_image ? (
-          <Image
-            src={blog.cover_image}
-            height={1080}
-            width={1920}
-            alt={blog.title || 'Blog cover'}
-            onError={() => setImageError(true)}
-            className="h-full w-full object-cover group-hover:scale-105 transition-all duration-300 border-b border-[#1d293a]"
-          />
-        ) : (
-          <div className="flex items-center justify-center h-full bg-[#0f1629] text-white text-sm">
-            image no longer exists
-          </div>
-        )}
-      </div>
-
-      {/* CONTENT */}
-      <div className="p-2 sm:p-3 flex flex-col">
-
-        {/* Reactions & Comments */}
-        <div className="flex justify-between items-center text-[#16f2b3] text-sm mb-1">
-          <div className="flex items-center gap-3">
-            <p className="flex items-center gap-1">
-              <BsHeartFill />
-              <span>{blog.public_reactions_count ?? 0}</span>
-            </p>
-            {blog.comments_count > 0 && (
-              <p className="flex items-center gap-1">
-                <FaCommentAlt />
-                <span>{blog.comments_count}</span>
-              </p>
-            )}
+    <div className="relative border-t bg-[#0d1224] border-[#353951] text-white">
+      <div className="mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] py-6 lg:py-10">
+        <div className="flex justify-center -z-40">
+          <div className="absolute top-0 h-[1px] w-1/2  bg-gradient-to-r from-transparent via-violet-500 to-transparent"></div>
+        </div>
+        <div className="flex flex-col md:flex-row items-center justify-between">
+          <p className="text-sm">
+            © Developer Portfolio by <Link target="_blank" href="https://www.linkedin.com/in/hussainmohhdd/" className="text-[#16f2b3]">Mohamed Hussain S </Link>
+          </p>
+          <div className="flex items-center gap-5">
+            <Link
+              target="_blank"
+              href="https://github.com/mohhddhassan/my-portfolio"
+              className="flex items-center gap-2 uppercase hover:text-[#16f2b3]"
+            >
+              <IoStar />
+              <span>Star</span>
+            </Link>
+            <Link
+              target="_blank"
+              href="https://github.com/mohhddhassan/my-portfolio/fork"
+              className="flex items-center gap-2 uppercase hover:text-[#16f2b3]"
+            >
+              <CgGitFork />
+              <span>Fork</span>
+            </Link>
           </div>
         </div>
-
-        {/* Title */}
-        {blog.title && (
-          <Link target="_blank" href={blog.url || '#'}>
-            <p className="my-2 lg:my-2 cursor-pointer text-base sm:text-lg text-white font-medium hover:text-violet-500 leading-snug line-clamp-2">
-              {blog.title}
-            </p>
-          </Link>
-        )}
-
-        {/* Read Time */}
-        {typeof blog.reading_time_minutes === 'number' && (
-          <p className="mb-2 text-sm text-[#16f2b3]">
-            {`${blog.reading_time_minutes} Min Read`}
-          </p>
-        )}
-
-        {/* Description */}
-        {blog.description && (
-          <p className="text-sm lg:text-base text-[#d3d8e8] pb-3 lg:pb-6 line-clamp-2">
-            {blog.description}
-          </p>
-        )}
-
-        {/* Read More Button */}
-        <div>
-          <Link target="_blank" href={blog.url || '#'}>
-            <button className="bg-violet-500 hover:bg-violet-600 transition px-3 py-1.5 rounded-full text-xs text-white">
-              Read More
-            </button>
-          </Link>
-        </div>
-
       </div>
-    </div>
+    </div >
   );
-}
+};
 
-export default BlogCard;
+export default Footer;
