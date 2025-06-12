@@ -3,13 +3,15 @@ import React from 'react';
 import { personalData } from 'utils/data/personal-data.js';
 
 export default function ResumeViewer() {
-    // Transform your drive resume link into direct link:
-    const resumeUrl = personalData.resume.replace(
-        "https://drive.google.com/file/d/",
-        "https://drive.google.com/uc?export=view&id="
-    ).replace("/view?usp=drive_link", "");
+    // Extract the file ID from the Google Drive URL
+    const fileIdMatch = personalData.resume.match(/\/d\/([a-zA-Z0-9_-]+)/);
+    const fileId = fileIdMatch ? fileIdMatch[1] : null;
 
-    return (
+    const resumeUrl = fileId
+        ? `https://drive.google.com/file/d/${fileId}/preview`
+        : null;
+
+    return resumeUrl ? (
         <iframe
             src={resumeUrl}
             width="100%"
@@ -17,5 +19,7 @@ export default function ResumeViewer() {
             style={{ border: 'none' }}
             title="Resume"
         />
+    ) : (
+        <p>Resume not available</p>
     );
 }
