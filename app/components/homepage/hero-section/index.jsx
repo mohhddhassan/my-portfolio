@@ -62,7 +62,7 @@ function HeroSection() {
               rel="noopener noreferrer"
               href={resumeUrl}
             >
-              <span>Get Resume</span>
+              <span>View Resume</span>
               <MdDownload size={16} />
             </a>
           </div>
