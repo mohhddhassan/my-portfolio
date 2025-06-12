@@ -63,7 +63,7 @@ function HeroSection() {
               href={resumeUrl}
             >
               <span>View Resume</span>
-              <MdDownload size={16} />
+              {/* <MdDownload size={16} /> */}
             </a>
           </div>
         </div>
