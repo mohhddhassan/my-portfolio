@@ -9,9 +9,8 @@ import { RiContactsFill } from "react-icons/ri";
 import { SiLeetcode } from "react-icons/si";
 
 // Transform the Drive link to direct viewable format
-const resumeUrl = personalData.resume
-  .replace("https://drive.google.com/file/d/", "https://drive.google.com/uc?export=view&id=")
-  .replace("/view?usp=drive_link", "");
+const resumeUrl = "/Mohamed_Hussain_Resume.pdf";
+
 
 function HeroSection() {
   return (
