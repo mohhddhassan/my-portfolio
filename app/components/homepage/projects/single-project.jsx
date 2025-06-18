@@ -57,7 +57,7 @@ const SingleProject = ({ project }) => {
           </Link>
           
           <Link
-            href={code}
+            href={projectLink}
             target='_blank'
             className="flex justify-center items-center w-10 h-10 rounded-full border-2 border-[#EFF3F4] text-[#EFF3F4] transition-all duration-300 hover:bg-[#231d4b] hover:text-violet-600 hover:border-[#0F0C41] hover:scale-110 cursor-pointer no-underline  delay-[0.3s] group-hover:translate-x-[-140px]">
             <FaCode />

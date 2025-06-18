@@ -5,7 +5,7 @@ export const projectsData = [
         description: 'Built an automated system to collect ClickHouse internal metrics every hour using Airflow. Stored results in daily CSV files using Docker containers and Python scripts. Helped practice metric monitoring, logging, and scheduled data capture.',
         tools: ['Python', 'Airflow', 'Docker', 'ClickHouse', 'clickhouse-connect'],
         role: 'Intern Project | Automation & Monitoring',
-        code: 'https://github.com/mohhddhassan/clickhouse-metrics-extractor',
+        github: 'https://github.com/mohhddhassan/clickhouse-metrics-extractor',
         demo: '',
     },
     {
@@ -14,7 +14,7 @@ export const projectsData = [
         description: 'Designed a complete data pipeline to pull COVID-19 stats from an API, process it, and store it in PostgreSQL. Used Airflow for orchestration and Docker for containerization. Focused on real-world ETL, retries, and modular scheduling.',
         tools: ['Python', 'Airflow', 'Docker', 'PostgreSQL', 'Requests'],
         role: 'Intern Project | ETL & Scheduling',
-        code: 'https://github.com/mohhddhassan/covid-data-pipeline',
+        github: 'https://github.com/mohhddhassan/covid-data-pipeline',
         demo: '',
     },
     {
@@ -23,7 +23,7 @@ export const projectsData = [
         description: 'Deployed a real-time sales dashboard using Streamlit and ClickHouse. Included dynamic date filters and visuals for KPIs like revenue trends, product performance, and category insights.',
         tools: ['Python', 'Streamlit', 'ClickHouse', 'Altair', 'Pandas'],
         role: 'Intern Project | ETL & Visualization',
-        code: 'https://github.com/mohhddhassan/TrendLite',
+        github: 'https://github.com/mohhddhassan/TrendLite',
         demo: '',
     },
     {
@@ -32,7 +32,7 @@ export const projectsData = [
         description: 'Created a no-code tool for demand prediction using AutoML. Included EDA, model selection, and ensemble-based prediction with a focus on user-driven configuration and visual results.',
         tools: ['Python', 'Streamlit', 'Scikit-learn', 'Pandas', 'YData Profiling'],
         role: 'Capstone Project | Team of 2',
-        code: 'https://github.com/mohhddhassan/Auto_Trend',
+        github: 'https://github.com/mohhddhassan/Auto_Trend',
         demo: '',
     },
 ];
