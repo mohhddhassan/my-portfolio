@@ -4,19 +4,20 @@ import { personalData } from "@/utils/data/personal-data";
 import BlogCard from "../components/homepage/blog/blog-card";
 
 async function getBlogs() {
-  const res = await fetch(
-    `https://dev.to/api/articles?username=${personalData.devUsername}`,
-    {
-      cache: 'force-cache', // 👈 forces static fetch
-    }
-  );
+  const res = await fetch(`https://dev.to/api/articles/me/published`, {
+    headers: {
+      "api-key": process.env.DEV_TO_API_KEY, // Use key from .env or Vercel env
+    },
+    cache: 'force-cache',
+  });
+
   if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    throw new Error('Failed to fetch data');
   }
 
   const data = await res.json();
   return data;
-};
+}
 
 async function page() {
   const blogs = await getBlogs();
