@@ -3,23 +3,25 @@
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 import BlogCard from './blog-card';
-import { useState } from 'react'; // Add this line
+import { useState } from 'react';
 
 function Blog({ blogs }) {
   const noBlogs = !blogs || blogs.length === 0;
-  const [showAll, setShowAll] = useState(false); // Toggle state
-
-  const visibleBlogs = showAll ? blogs : blogs.slice(0, 3);
+  const sortedBlogs = [...blogs].sort(
+    (a, b) => new Date(b.published_at) - new Date(a.published_at)
+  );
+  const [showAll, setShowAll] = useState(false);
+  const visibleBlogs = showAll ? sortedBlogs : sortedBlogs.slice(0, 3);
 
   return (
     <div id='blogs' className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
       {/* Blur Background Circle */}
-      <div className="w-[100px] h-[100px] bg-violet-100 rounded-full absolute top-6 left-[42%] translate-x-1/2 filter blur-3xl  opacity-20"></div>
+      <div className="w-[100px] h-[100px] bg-violet-100 rounded-full absolute top-6 left-[42%] translate-x-1/2 filter blur-3xl opacity-20"></div>
 
       {/* Top Divider Line */}
       <div className="flex justify-center -translate-y-[1px]">
         <div className="w-3/4">
-          <div className="h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent  w-full" />
+          <div className="h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent w-full" />
         </div>
       </div>
 
@@ -37,18 +39,18 @@ function Blog({ blogs }) {
       {/* Blog Cards */}
       {noBlogs ? (
         <div className="text-center text-[#d3d8e8] text-sm md:text-base lg:text-lg py-12 px-4">
-          <p className="mb-4">I&apos;m currently working on writing blog posts where I&apos;ll share my learning journey, project insights, and tech tips.</p>
+          <p className="mb-4">
+            I&apos;m currently working on writing blog posts where I&apos;ll share my learning journey,
+            project insights, and tech tips.
+          </p>
           <p>Stay tuned!</p>
         </div>
       ) : (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 lg:gap-8 xl:gap-10">
-            {
-              visibleBlogs.map((blog, i) => (
-                blog?.cover_image &&
-                <BlogCard blog={blog} key={i} />
-              ))
-            }
+            {visibleBlogs.map((blog, i) => (
+              blog?.cover_image && <BlogCard blog={blog} key={i} />
+            ))}
           </div>
 
           {/* View More / View Less Button */}
