@@ -4,7 +4,8 @@
 import { timeConverter } from '@/utils/time-converter';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaCommentAlt, FaEye } from 'react-icons/fa';
+import { FaCommentAlt } from 'react-icons/fa';
+import { PiEyeLight } from "react-icons/pi"; // 👈 icon for views
 import { useState } from 'react';
 
 function BlogCard({ blog }) {
@@ -38,7 +39,7 @@ function BlogCard({ blog }) {
         <div className="flex justify-between items-center text-[#16f2b3] text-sm mb-2">
           <div className="flex items-center gap-3">
             <p className="flex items-center gap-1">
-              <FaEye />
+              <PiEyeLight />
               <span>{blog.page_views_count}</span>
             </p>
             {blog.comments_count > 0 && (
