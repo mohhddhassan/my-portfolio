@@ -6,6 +6,12 @@ import { useState } from "react";
 import { TbMailForward } from "react-icons/tb";
 import { toast } from "react-toastify";
 
+const [otp, setOtp] = useState("");
+const [enteredOtp, setEnteredOtp] = useState("");
+const [isOtpSent, setIsOtpSent] = useState(false);
+const [isEmailVerified, setIsEmailVerified] = useState(false);
+const [showOtpField, setShowOtpField] = useState(false);
+
 function ContactForm() {
   const [error, setError] = useState({ email: false, required: false });
   const [isLoading, setIsLoading] = useState(false);
