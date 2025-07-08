@@ -13,12 +13,12 @@ export default async function handler(req, res) {
 
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
-  // Set up your transporter
+  
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.EMAIL_USER, // your Gmail address
-      pass: process.env.EMAIL_PASS, // your Gmail app password (not your Gmail password)
+      user: process.env.EMAIL_USER, 
+      pass: process.env.EMAIL_PASS, 
     },
   });
 
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
 
   try {
     await transporter.sendMail(mailOptions);
-    return res.status(200).json({ message: "OTP sent", otp }); // You can remove 'otp' in prod
+    return res.status(200).json({ message: "OTP sent", otp });
   } catch (error) {
     console.error("Email send error:", error);
     return res.status(500).json({ message: "Failed to send OTP" });

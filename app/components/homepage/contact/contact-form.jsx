@@ -6,15 +6,15 @@ import { useState } from "react";
 import { TbMailForward } from "react-icons/tb";
 import { toast } from "react-toastify";
 
+const [otp, setOtp] = useState("");
+const [enteredOtp, setEnteredOtp] = useState("");
+const [isOtpSent, setIsOtpSent] = useState(false);
+const [isEmailVerified, setIsEmailVerified] = useState(false);
+const [showOtpField, setShowOtpField] = useState(false);
+
 function ContactForm() {
   const [error, setError] = useState({ email: false, required: false });
   const [isLoading, setIsLoading] = useState(false);
-  const [otp, setOtp] = useState("");
-  const [enteredOtp, setEnteredOtp] = useState("");
-  const [isOtpSent, setIsOtpSent] = useState(false);
-  const [isEmailVerified, setIsEmailVerified] = useState(false);
-  const [showOtpField, setShowOtpField] = useState(false);
-
   const [userInput, setUserInput] = useState({
     name: "",
     email: "",
@@ -39,39 +39,11 @@ function ContactForm() {
       setError({ ...error, required: false });
     }
 
-    // Step 1: Send OTP if not verified and not yet sent
-    if (!isEmailVerified && !isOtpSent) {
-      try {
-        const response = await axios.post("/api/send-otp", {
-          email: userInput.email,
-        });
-
-        setOtp(response.data.otp); // Only for dev/debugging
-        setIsOtpSent(true);
-        setShowOtpField(true);
-        toast.success("OTP sent to your email!");
-      } catch (error) {
-        toast.error("Failed to send OTP");
-      }
-      return;
-    }
-
-    // Step 2: Block message send if OTP is pending
-    if (isOtpSent && !isEmailVerified) {
-      toast.error("Please verify your email using the OTP sent");
-      return;
-    }
-
-    // Step 3: If email is verified, send message
     try {
       setIsLoading(true);
-      await axios.post("/api/contact", userInput);
+      await axios.post('/api/contact', userInput);
       toast.success("Message sent successfully!");
       setUserInput({ name: "", email: "", message: "" });
-      setIsEmailVerified(false);
-      setIsOtpSent(false);
-      setShowOtpField(false);
-      setEnteredOtp("");
     } catch (error) {
       toast.error(error?.response?.data?.message || "Something went wrong!");
     } finally {
@@ -134,31 +106,6 @@ function ContactForm() {
               value={userInput.message}
             />
           </div>
-
-          {showOtpField && !isEmailVerified && (
-            <div className="flex flex-col gap-2">
-              <input
-                className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] px-3 py-2"
-                type="text"
-                placeholder="Enter OTP"
-                value={enteredOtp}
-                onChange={(e) => setEnteredOtp(e.target.value)}
-              />
-              <button
-                className="text-sm bg-[#16f2b3] px-3 py-1 rounded-md text-black"
-                onClick={() => {
-                  if (enteredOtp === otp) {
-                    setIsEmailVerified(true);
-                    toast.success("Email verified successfully!");
-                  } else {
-                    toast.error("Invalid OTP");
-                  }
-                }}
-              >
-                Verify OTP
-              </button>
-            </div>
-          )}
 
           <div className="flex flex-col items-center gap-3">
             {error.required && <p className="text-sm text-red-400">All fields are required!</p>}

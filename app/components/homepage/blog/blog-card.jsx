@@ -40,7 +40,7 @@ function BlogCard({ blog }) {
           <div className="flex items-center gap-3">
             <p className="flex items-center gap-1">
               <PiEyeLight />
-              <span>{blog.page_views_count}</span>
+              <span>{blog.page_views_count ?? 0}</span>
             </p>
             {blog.comments_count > 0 && (
               <p className="flex items-center gap-1">
