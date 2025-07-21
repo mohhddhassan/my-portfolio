@@ -6,13 +6,13 @@ import { useState } from "react";
 import { TbMailForward } from "react-icons/tb";
 import { toast } from "react-toastify";
 
-const [otp, setOtp] = useState("");
-const [enteredOtp, setEnteredOtp] = useState("");
-const [isOtpSent, setIsOtpSent] = useState(false);
-const [isEmailVerified, setIsEmailVerified] = useState(false);
-const [showOtpField, setShowOtpField] = useState(false);
-
 function ContactForm() {
+  const [otp, setOtp] = useState("");
+  const [enteredOtp, setEnteredOtp] = useState("");
+  const [isOtpSent, setIsOtpSent] = useState(false);
+  const [isEmailVerified, setIsEmailVerified] = useState(false);
+  const [showOtpField, setShowOtpField] = useState(false);
+
   const [error, setError] = useState({ email: false, required: false });
   const [isLoading, setIsLoading] = useState(false);
   const [userInput, setUserInput] = useState({
@@ -41,7 +41,7 @@ function ContactForm() {
 
     try {
       setIsLoading(true);
-      await axios.post('/api/contact', userInput);
+      await axios.post("/api/contact", userInput);
       toast.success("Message sent successfully!");
       setUserInput({ name: "", email: "", message: "" });
     } catch (error) {
