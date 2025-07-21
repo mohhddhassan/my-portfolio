@@ -48,7 +48,7 @@ function ContactForm() {
       <div className="mb-4">
         <h2 className="text-2xl font-bold text-[#16f2b3]">Contact Me</h2>
         <p className="text-sm text-[#d3d8e8] mt-2 max-w-xl leading-relaxed">
-          Got a question, opportunity, or just want to say hi? <br />
+          Got a question, opportunity, or just want to say Hi? <br />
           I’m always open to connecting and collaborating on ideas that match my skills and interests.
         </p>
       </div>
