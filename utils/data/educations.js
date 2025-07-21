@@ -4,7 +4,7 @@ export const educations = [
     title: "B.E. Computer Science and Engineering ",
     duration: "Oct 2021 - May 2025",
     institution: "Rajalakshmi Engineering College, Chennai, India",
-    grade: "7.56 CGPA (Up to Semester 7)",
+    grade: "7.62 CGPA",
     description:
       "Built a strong foundation in core CS concepts with hands-on experience in data analysis, software development, and problem solving. Participated in national-level hackathons and developed real-world projects focused on automation, productivity, and web development. Gained practical skills in Python, SQL, Power BI, and agile collaboration through academic and extracurricular work."
   },
