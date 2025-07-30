@@ -9,17 +9,31 @@ import Projects from "./components/homepage/projects";
 import Skills from "./components/homepage/skills";
 
 async function getData() {
-  const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`);
+  const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`, {
+    headers: {
+      "api-key": process.env.NEXT_PUBLIC_DEVTO_API_KEY, // same as blog page
+    },
+  });
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data');
+    throw new Error("Failed to fetch data");
   }
 
   const data = await res.json();
 
   const filtered = data
     .filter((item) => item?.cover_image)
-    .sort(() => Math.random() - 0.5);
+    .sort(() => Math.random() - 0.5)
+    .map((item) => ({
+      id: item.id,
+      title: item.title,
+      cover_image: item.cover_image,
+      url: item.url,
+      description: item.description,
+      published_at: item.published_at,
+      reading_time: item.reading_time_minutes,
+      views: item.page_views_count, // <-- important
+    }));
 
   return filtered;
 }
