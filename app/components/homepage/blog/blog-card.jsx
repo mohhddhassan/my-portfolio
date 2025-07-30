@@ -5,7 +5,7 @@ import { timeConverter } from '@/utils/time-converter';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaCommentAlt } from 'react-icons/fa';
-import { PiEyeLight } from "react-icons/pi"; // 👈 icon for views
+import { EyeIcon } from 'lucide-react'; // 👈 updated icon
 import { useState } from 'react';
 
 function BlogCard({ blog }) {
@@ -39,12 +39,12 @@ function BlogCard({ blog }) {
         <div className="flex justify-between items-center text-[#16f2b3] text-sm mb-2">
           <div className="flex items-center gap-3">
             <p className="flex items-center gap-1">
-              <PiEyeLight />
+              <EyeIcon size={16} /> {/* 👈 changed from PiEyeLight */}
               <span>{blog.page_views_count ?? 0}</span>
             </p>
             {blog.comments_count > 0 && (
               <p className="flex items-center gap-1">
-                <FaCommentAlt />
+                <FaCommentAlt size={14} />
                 <span>{blog.comments_count}</span>
               </p>
             )}
