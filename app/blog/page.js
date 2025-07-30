@@ -1,9 +1,9 @@
-import HeroSection from "./components/homepage/hero-section";
-// import Projects from "./components/homepage/projects";
-import BlogCard from "./components/homepage/blog/blog-card";
-import Education from "./components/homepage/education";
-import Experience from "./components/homepage/experience";
-import Skills from "./components/homepage/skills";
+// import HeroSection from "./components/homepage/hero-section";
+// // import Projects from "./components/homepage/projects";
+// import BlogCard from "./components/homepage/blog/blog-card";
+// import Education from "./components/homepage/education";
+// import Experience from "./components/homepage/experience";
+// import Skills from "./components/homepage/skills";
 
 async function getBlogs() {
   const res = await fetch("https://dev.to/api/articles/me/published", {
