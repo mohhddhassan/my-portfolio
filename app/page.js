@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { FaCommentAlt } from "react-icons/fa";
 import { EyeIcon } from "lucide-react";
-import { useState } from "react";
 
 import { personalData } from "@/utils/data/personal-data";
 import AboutSection from "./components/homepage/about";
@@ -22,18 +22,19 @@ async function getData() {
       headers: {
         "api-key": process.env.NEXT_PUBLIC_DEVTO_API_KEY,
       },
+      next: { revalidate: 60 }, // Revalidate every 60s for caching (optional)
     }
   );
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    throw new Error("Failed to fetch blogs");
   }
 
   const data = await res.json();
 
   const filtered = data
     .filter((item) => item?.cover_image)
-    .sort(() => Math.random() - 0.5)
+    .sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
     .map((item) => ({
       id: item.id,
       title: item.title,
@@ -41,9 +42,9 @@ async function getData() {
       url: item.url,
       description: item.description,
       published_at: item.published_at,
-      reading_time_minutes: item.reading_time_minutes,
-      comments_count: item.comments_count,
-      page_views_count: item.page_views_count,
+      reading_time: item.reading_time_minutes,
+      views: item.page_views_count ?? 0,
+      comments: item.comments_count ?? 0,
     }));
 
   return filtered;
@@ -51,6 +52,7 @@ async function getData() {
 
 export default async function Home() {
   const blogs = await getData();
+  const latestBlogs = blogs.slice(0, 3); // Only 3 blogs on homepage
 
   return (
     <div suppressHydrationWarning>
@@ -69,12 +71,18 @@ export default async function Home() {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogs.map((blog) => {
-              // You can't use useState inside a map, so move image error handling into a component later if needed.
-              return (
-                <BlogCardInline key={blog.id} blog={blog} />
-              );
-            })}
+            {latestBlogs.map((blog) => (
+              <BlogCardInline key={blog.id} blog={blog} />
+            ))}
+          </div>
+
+          {/* View More Button */}
+          <div className="mt-8 flex justify-center">
+            <Link href="/blogs">
+              <button className="bg-violet-500 hover:bg-violet-600 transition px-6 py-2 rounded-full text-sm text-white">
+                View More Blogs
+              </button>
+            </Link>
           </div>
         </section>
         {/* BLOG SECTION END */}
@@ -85,13 +93,13 @@ export default async function Home() {
   );
 }
 
-// 👇 Define the inline blog card as a local component
+// Local BlogCardInline component
 function BlogCardInline({ blog }) {
   const [imageError, setImageError] = useState(false);
 
   return (
     <div className="border border-[#1d293a] hover:border-[#464c6a] transition-all duration-500 bg-[#1b203e] rounded-lg relative group shadow-md hover:shadow-violet-600/20 flex flex-col justify-between h-full max-h-[450px]">
-      {/* IMAGE */}
+      {/* Image */}
       <div className="h-32 sm:h-36 lg:h-40 w-full cursor-pointer overflow-hidden rounded-t-lg">
         {!imageError ? (
           <Image
@@ -109,19 +117,19 @@ function BlogCardInline({ blog }) {
         )}
       </div>
 
-      {/* CONTENT */}
+      {/* Content */}
       <div className="p-3 flex flex-col flex-1 justify-between">
         {/* Views & Comments */}
         <div className="flex justify-between items-center text-[#16f2b3] text-sm mb-2">
           <div className="flex items-center gap-3">
             <p className="flex items-center gap-1">
               <EyeIcon size={16} />
-              <span>{blog.page_views_count ?? 0}</span>
+              <span>{blog.views}</span>
             </p>
-            {blog.comments_count > 0 && (
+            {blog.comments > 0 && (
               <p className="flex items-center gap-1">
                 <FaCommentAlt size={14} />
-                <span>{blog.comments_count}</span>
+                <span>{blog.comments}</span>
               </p>
             )}
           </div>
@@ -135,7 +143,9 @@ function BlogCardInline({ blog }) {
         </Link>
 
         {/* Read Time */}
-        <p className="text-sm text-[#16f2b3] mb-1">{`${blog.reading_time_minutes} Min Read`}</p>
+        <p className="text-sm text-[#16f2b3] mb-1">
+          {blog.reading_time} Min Read
+        </p>
 
         {/* Description */}
         <p className="text-sm text-[#d3d8e8] line-clamp-2 mb-4">
