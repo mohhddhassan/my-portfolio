@@ -11,7 +11,7 @@ import Skills from "./components/homepage/skills";
 async function getData() {
   const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`, {
     headers: {
-      "api-key": process.env.NEXT_PUBLIC_DEVTO_API_KEY, // same as blog page
+      "api-key": process.env.NEXT_PUBLIC_DEVTO_API_KEY, 
     },
   });
 
@@ -32,7 +32,7 @@ async function getData() {
       description: item.description,
       published_at: item.published_at,
       reading_time: item.reading_time_minutes,
-      views: item.page_views_count, // <-- important
+      views: item.page_views_count, 
     }));
 
   return filtered;
@@ -43,7 +43,6 @@ export default async function Home() {
 
   return (
     <div suppressHydrationWarning>
-      {/* 👇 Main content pushed down by 80px to avoid navbar overlap */}
       <main className="pt-20">
         <HeroSection />
         <AboutSection />
