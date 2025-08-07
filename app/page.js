@@ -36,11 +36,11 @@ import Skills from "./components/homepage/skills";
       id: item.id,
       title: item.title,
       cover_image: item.cover_image,
-      url: item.url,
+      url: blog.url,
       description: item.description,
       published_at: item.published_at,
-      reading_time: item.reading_time_minutes,
-      views: item.page_views_count, 
+      reading_time: item.reading_time,
+      views: item.views, 
     }));
 
   return filtered;
