@@ -8,11 +8,19 @@ import HeroSection from "./components/homepage/hero-section";
 import Projects from "./components/homepage/projects";
 import Skills from "./components/homepage/skills";
 
-async function getData() {
-  const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`, {
+// async function getData() {
+//   const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`, {
+//     headers: {
+//       "api-key": process.env.DEV_TO_API_KEY, 
+//     },
+//   });
+
+  async function getBlogs() {
+  const res = await fetch("https://dev.to/api/articles/me/published", {
     headers: {
-      "api-key": process.env.DEV_TO_API_KEY, 
+      "api-key": process.env.DEV_TO_API_KEY, // stored in .env
     },
+    cache: "force-cache",
   });
 
   if (!res.ok) {
@@ -39,7 +47,7 @@ async function getData() {
 }
 
 export default async function Home() {
-  const blogs = await getData();
+  const blogs = await getBlogs();
 
   return (
     <div suppressHydrationWarning>
