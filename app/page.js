@@ -39,8 +39,8 @@ import Skills from "./components/homepage/skills";
       url: item.url,
       description: item.description,
       published_at: item.published_at,
-      reading_time: item.reading_time,
-      views: item.views, 
+      reading_time_minutes: item.reading_time_minutes,
+      page_views_count: item.page_views_count, 
     }));
 
   return filtered;
