@@ -36,7 +36,7 @@ import Skills from "./components/homepage/skills";
       id: item.id,
       title: item.title,
       cover_image: item.cover_image,
-      url: blog.url,
+      url: item.url,
       description: item.description,
       published_at: item.published_at,
       reading_time: item.reading_time,
