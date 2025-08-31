@@ -28,7 +28,7 @@ function HeroSection() {
           <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
             Hey There! <br />
             I&apos;m <span className="text-pink-500">{personalData.name}</span>
-            {`, a Data Engineer Intern `}
+            {`, a Data Engineer `}
             <span className="text-[#16f2b3]">turning real-world problems into solutions with code and curiosity.</span>
           </h1>
 
