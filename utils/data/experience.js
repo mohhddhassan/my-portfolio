@@ -1,9 +1,9 @@
 export const experiences = [
   {
-    title: 'Associate Data Engineer Intern',
+    title: 'Associate Data Engineer',
     company: 'Quantrail Data',
-    duration: '(Apr 2025 - Present)',
-    location: 'Chennai, Tamil Nadu, India · Remote',
+    duration: '(Jan 2025 - Present)',
+    location: 'Chennai, Tamil Nadu, India · Onsite',
     responsibilities: [
       'Developed real-time data pipelines and analytics using ClickHouse and Python to optimize data workflows.',
       'Built TrendLite - a realtime analytics dashboard to monitor ingestion and query performance using ClickHouse.',
