@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Mohamed Hussain | Data Engineer",
   description:
-    "I'm Mohamed Hussain — a data engineer intern and self-taught developer who enjoys solving real-world problems with clean code and smart systems. Whether it's building real-time data pipelines, crafting intuitive web apps, or competing in hackathons, I'm always driven by curiosity and impact. Let's build things that matter. 🚀",
+    "I'm Mohamed Hussain — a data engineer and self-taught developer who enjoys solving real-world problems with clean code and smart systems. Whether it's building real-time data pipelines, crafting intuitive web apps, or competing in hackathons, I'm always driven by curiosity and impact. Let's build things that matter. 🚀",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
