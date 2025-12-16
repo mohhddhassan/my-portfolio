@@ -246,5 +246,3 @@ npm run dev
 
 ```
 
-Let me know if you want a downloadable `.md` file or want to push it straight to your repo via CLI.
-```
