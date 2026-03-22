@@ -47,7 +47,7 @@ function Skills() {
                   </div>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-3 p-6">
-                  <div className="h-12 sm:h-14">
+                  <div className="h-8 sm:h-10">
                     <Image
                       src={`/images/skills/${skill.toLowerCase().replace(/\s+/g, '')}.svg`}
                       alt={skill}
