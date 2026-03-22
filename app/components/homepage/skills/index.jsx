@@ -53,7 +53,7 @@ function Skills() {
                       alt={skill}
                       width={40}
                       height={40}
-                      className="h-full w-auto rounded-lg"
+                      className="h-full w-full object-contain"
                     />
                   </div>
                   <p className="text-white text-sm sm:text-lg">{skill}</p>
