@@ -7,6 +7,6 @@ export const skillsData = [
   'Git',
   'VS Code',
   'Linux',
-  'Bash',
-  'Streamlit'
+  'Bash'
+  // 'Streamlit'
 ];
