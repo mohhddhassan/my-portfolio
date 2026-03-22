@@ -1,12 +1,14 @@
 export const skillsData = [
-  'Postgresql',
   'ClickHouse',
+  'PostgreSQL',
+  'Apache Kafka',
+  'Debezium',
   'Python',
-  'Apache Airflow',
   'Docker',
-  'Git',
-  'VS Code',
+  'Kubernetes',
+  'Apache Airflow',
+  'Qdrant',
   'Linux',
-  'Bash'
-  // 'Streamlit'
+  'Bash',
+  'Git'
 ];
