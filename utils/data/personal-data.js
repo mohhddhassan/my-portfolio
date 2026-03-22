@@ -2,7 +2,7 @@ export const personalData = {
   name: "Mohamed Hussain S",
   profile: '/profile.png',
   designation: "Associate Data Engineer",
-  description: "Associate Data Engineer focused on building and operating real-time data systems.I work with ClickHouse, Kafka, PostgreSQL, and modern infrastructure to design scalable pipelines, understand system internals, and deploy reliable data platforms.",
+  description: "Associate Data Engineer focused on building and operating real-time data systems. I work with ClickHouse, Kubernetes, PostgreSQL, and modern infrastructure to design scalable pipelines, understand system internals, and deploy reliable data platforms.",
   email: 'mohhddhassan@gmail.com',
   phone: '+91 77088 67386',
   address: 'Chennai, India ',
