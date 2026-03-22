@@ -1,8 +1,8 @@
 export const personalData = {
   name: "Mohamed Hussain S",
   profile: '/profile.png',
-  designation: "Associate Data Engineer Intern",
-  description: "Associate Data Engineer Intern at Quantrail Data, where I'm building real-time analytics dashboards and scalable data pipelines using ClickHouse and Python. From demand prediction (AutoTrend) to healthcare apps (MedRem), I enjoy crafting data-driven solutions and shipping smart backend logic. I thrive in hackathons, love clean code, and believe learning should never stop. Let's build what matters. 🚀",
+  designation: "Associate Data Engineer",
+  description: "Associate Data Engineer focused on building and operating real-time data systems.I work with ClickHouse, Kafka, PostgreSQL, and modern infrastructure to design scalable pipelines, understand system internals, and deploy reliable data platforms.",
   email: 'mohhddhassan@gmail.com',
   phone: '+91 77088 67386',
   address: 'Chennai, India ',
