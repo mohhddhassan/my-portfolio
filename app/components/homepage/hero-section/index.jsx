@@ -9,7 +9,7 @@ import { RiContactsFill } from "react-icons/ri";
 import { SiLeetcode } from "react-icons/si";
 
 // Transform the Drive link to direct viewable format
-const resumeUrl = "/public/Mohamed_Hussain_Resume.pdf";
+const resumeUrl = "/Mohamed_Hussain_Resume.pdf";
 
 
 function HeroSection() {
