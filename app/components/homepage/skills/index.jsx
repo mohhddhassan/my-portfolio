@@ -53,7 +53,10 @@ function Skills() {
                       alt={skill}
                       width={40}
                       height={40}
-                      className="h-full w-full object-contain"
+                      className={`object-contain ${skill === "Apache Kafka"
+                        ? "h-full w-full brightness-0 invert scale-125 opacity-90"
+                        : "h-full w-full"
+                        }`}
                     />
                   </div>
                   <p className="text-white text-sm sm:text-lg">{skill}</p>
