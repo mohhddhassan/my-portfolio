@@ -7,7 +7,7 @@
 
 #### Are you struggling to create a professional portfolio website? Look no further! Use this Developer Portfolio template and create your very own personalized portfolio today.
 
-✅ Deployed using **[Vercel](https://vercel.com)** for seamless, production-ready hosting.
+Deployed using **[Vercel](https://vercel.com)** for seamless, production-ready hosting.
 
 This portfolio is designed to be user-friendly and easily customizable, making it perfect for both developers and freelancers.
 
@@ -24,10 +24,10 @@ This portfolio is designed to be user-friendly and easily customizable, making i
 
 # What's New in v1.1.0 🛠️
 
-- ✅ Improved overall design and layout for a more polished and professional appearance
-- 🧪 Fixed Contact section functionality (now working smoothly)
-- 🐛 Squashed several minor bugs for better performance
-- 🚀 Confirmed deployment via **Vercel**
+- Improved overall design and layout for a more polished and professional appearance
+- Fixed Contact section functionality (now working smoothly)
+- Squashed several minor bugs for better performance
+- Confirmed deployment via **Vercel**
 
 ---
 
@@ -170,7 +170,7 @@ export const personalData = {
 3. Add environment variables from your `.env` file.
 4. Click **Deploy** – Vercel auto-detects and builds the app.
 
-📦 **Vercel redeploys automatically** when you push new changes!
+**Vercel redeploys automatically** when you push new changes!
 
 ### Deploying to Netlify:
 
