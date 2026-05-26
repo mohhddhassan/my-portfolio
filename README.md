@@ -1,134 +1,162 @@
-
 # [Built Portfolio With GitHub](https://github.com/mohhddhassan/my-portfolio)
 
 ---
 
 # Developer Portfolio
 
-#### Are you struggling to create a professional portfolio website? Look no further! Use this Developer Portfolio template and create your very own personalized portfolio today.
+A modern and customizable developer portfolio template built with Next.js.
 
-Deployed using **[Vercel](https://vercel.com)** for seamless, production-ready hosting.
+This portfolio is designed to be simple to set up, easy to customize, and production-ready for developers, students, freelancers, and engineers who want a clean online presence.
 
-This portfolio is designed to be user-friendly and easily customizable, making it perfect for both developers and freelancers.
+Deployed using **[Vercel](https://vercel.com/)**.
 
 ---
 
-# Demo :movie_camera:
+# Demo
 
 ![Portfolio Demo](./public/demo/porfolio.gif)
 
-## View live preview [here](https://my-portfolio-git-main-mohamed-hussain-ss-projects.vercel.app/)
+## Live Preview
 
-
----
-
-# What's New in v1.1.0 🛠️
-
-- Improved overall design and layout for a more polished and professional appearance
-- Fixed Contact section functionality (now working smoothly)
-- Squashed several minor bugs for better performance
-- Confirmed deployment via **Vercel**
+[View Portfolio](https://my-portfolio-git-main-mohamed-hussain-ss-projects.vercel.app/)
 
 ---
 
-## Table of Contents :scroll:
+# What's New in v1.1.0
 
-- [Sections](#sections-bookmark)
-- [Demo](#demo-movie_camera)
-- [Installation](#installation-arrow_down)
-- [Getting Started](#getting-started-dart)
-- [Usage](#usage-joystick)
-- [Deployment](#deployment-rocket)
-- [Tutorials](#tutorials-wrench)
-  - [Gmail App Password Setup](#gmail-app-password-setup)
-  - [Create a Telegram Bot](#create-a-telegram-bot)
-  - [Fetching Blog from dev.to](#fetching-blog-from-devto)
-- [Packages Used](#packages-used-package)
+* Improved overall design and layout
+* Fixed Contact section functionality
+* Resolved multiple minor bugs
+* Deployment support verified with Vercel
 
 ---
 
-# Sections :bookmark:
+# Table of Contents
 
-- HERO SECTION
-- ABOUT ME
-- EXPERIENCE
-- SKILLS
-- PROJECTS
-- EDUCATION
-- BLOG
-- CONTACTS
+* [Sections](#sections)
+* [Demo](#demo)
+* [Installation](#installation)
+* [Getting Started](#getting-started)
+* [Usage](#usage)
+* [Deployment](#deployment)
+* [Tutorials](#tutorials)
+
+  * [Gmail App Password Setup](#gmail-app-password-setup)
+  * [Create a Telegram Bot](#create-a-telegram-bot)
+  * [Fetching Blog from devto](#fetching-blog-from-devto)
+* [Packages Used](#packages-used)
+* [FAQ](#faq)
 
 ---
 
-# Installation :arrow_down:
+# Sections
 
-### You will need to download Git and Node to run this project:
+* Hero
+* About
+* Experience
+* Skills
+* Projects
+* Education
+* Blog
+* Contact
 
-- [Git](https://git-scm.com/downloads)
-- [Node](https://nodejs.org/en/download/)
+---
 
-Check if they’re installed:
+# Installation
+
+You will need the following installed on your system:
+
+* [Git](https://git-scm.com/downloads)
+* [Node.js](https://nodejs.org/en/download/)
+
+Verify installation:
 
 ```bash
 node --version
 git --version
-````
+```
 
 ---
 
-# Getting Started \:dart:
+# Getting Started
 
-### Fork and Clone the repo
+## Clone the Repository
 
 ```bash
-git clone https://github.com/<YOUR GITHUB USERNAME>/developer-portfolio.git
+git clone https://github.com/<YOUR_GITHUB_USERNAME>/developer-portfolio.git
+
 cd developer-portfolio
 ```
 
-### Install dependencies
+---
+
+## Install Dependencies
 
 ```bash
 npm install
-# or
+```
+
+or
+
+```bash
 yarn install
 ```
 
-Run the development server:
+---
+
+## Start Development Server
 
 ```bash
 npm run dev
-# or
+```
+
+or
+
+```bash
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+Open:
+
+```txt
+http://localhost:3000
+```
 
 ---
 
-### Running with Docker Compose
+# Running with Docker Compose
 
 ```bash
 docker-compose up --build
 ```
 
-Then go to [http://localhost:3000](http://localhost:3000)
+Then visit:
+
+```txt
+http://localhost:3000
+```
 
 ---
 
-### Building the Docker Image
+# Building the Docker Image
 
 ```bash
 docker build -t nextjs-app -f Dockerfile.dev .
+
 docker run -p 3000:3000 nextjs-app
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) to see it running.
+Open:
+
+```txt
+http://localhost:3000
+```
 
 ---
 
-# Usage \:joystick:
+# Usage
 
-Create a new `.env` file from `.env.example`.
+Create a new `.env` file using `.env.example`.
 
 ```env
 NEXT_PUBLIC_GTM=
@@ -139,7 +167,17 @@ GMAIL_PASSKEY=
 EMAIL_ADDRESS=
 ```
 
-### Customize data in the [`utils/data`](https://github.com/said7388/developer-portfolio/tree/main/utils/data) folder:
+---
+
+## Customize Portfolio Data
+
+Update the files inside:
+
+```txt
+utils/data
+```
+
+Example:
 
 ```javascript
 export const personalData = {
@@ -155,80 +193,112 @@ export const personalData = {
   twitter: "https://twitter.com/said7388",
   leetcode: "https://leetcode.com/u/mohhddhassan/",
   devUsername: "mohhddhassan",
-  resume: "https://drive.google.com/file/d/1eD9WcQmp7tewUDfJgUJ9-UcOzCW7LFU4/view?usp=drive_link",
+  resume:
+    "https://drive.google.com/file/d/1eD9WcQmp7tewUDfJgUJ9-UcOzCW7LFU4/view?usp=drive_link",
 };
 ```
 
 ---
 
-# Deployment \:rocket:
+# Deployment
 
-### Deploying to Vercel:
+## Deploying to Vercel
 
-1. Sign up or log in to [Vercel](https://vercel.com/).
-2. Click on **"New Project"** and import your GitHub repo.
-3. Add environment variables from your `.env` file.
-4. Click **Deploy** – Vercel auto-detects and builds the app.
+1. Sign in to [Vercel](https://vercel.com/)
+2. Create a new project
+3. Import your GitHub repository
+4. Add environment variables from `.env`
+5. Click Deploy
 
-**Vercel redeploys automatically** when you push new changes!
-
-### Deploying to Netlify:
-
-1. Sign up at [Netlify](https://www.netlify.com/).
-2. Choose **"New site from Git"** and link your GitHub repo.
-3. Set up environment variables.
-4. Deploy site!
+Vercel automatically redeploys the application whenever new changes are pushed.
 
 ---
 
-# Tutorials \:wrench:
+## Deploying to Netlify
+
+1. Sign in to [Netlify](https://www.netlify.com/)
+2. Create a new site from Git
+3. Connect your GitHub repository
+4. Add environment variables
+5. Deploy the application
+
+---
+
+# Tutorials
 
 ## Gmail App Password Setup
 
-* Enable 2-Step Verification in your Google account
-* Generate an App Password under "Security" → "App Passwords"
-* Save and use it in `GMAIL_PASSKEY`
+* Enable 2-Step Verification in your Google Account
+* Generate an App Password from:
+
+```txt
+Google Account -> Security -> App Passwords
+```
+
+* Use the generated password in:
+
+```env
+GMAIL_PASSKEY=
+```
+
+---
 
 ## Create a Telegram Bot
 
-* Use `@BotFather` on Telegram to generate a bot token
-* Send your bot a message and get your `chat_id` via:
+* Open Telegram
+* Search for:
 
-  ```
-  https://api.telegram.org/bot<BOT_TOKEN>/getUpdates
-  ```
+```txt
+@BotFather
+```
+
+* Generate a bot token
+* Send a message to your bot
+* Retrieve your `chat_id` using:
+
+```txt
+https://api.telegram.org/bot<BOT_TOKEN>/getUpdates
+```
+
+---
 
 ## Fetching Blog from dev.to
 
-* Set `devUsername` in `utils/data.js`
+* Set your username in:
+
+```javascript
+devUsername
+```
+
 * Ensure your dev.to posts are public
 
 ---
 
-# Packages Used \:package:
+# Packages Used
 
-| Package                | Description                 |
-| ---------------------- | --------------------------- |
-| @emailjs/browser       | For sending emails via JS   |
-| @next/third-parties    | Next.js plugin support      |
-| axios                  | HTTP client                 |
-| lottie-react           | Animation rendering         |
-| next                   | React framework             |
-| nodemailer             | Email sending via Node      |
-| react, react-dom       | React core                  |
-| react-fast-marquee     | Marquee animations          |
-| react-icons            | Icon pack                   |
-| react-google-recaptcha | Google captcha integration  |
-| react-toastify         | Toast notifications         |
-| sharp                  | Image processing            |
-| sass                   | CSS preprocessor            |
-| tailwindcss            | Utility-first CSS framework |
+| Package                | Description                     |
+| ---------------------- | ------------------------------- |
+| @emailjs/browser       | Email integration               |
+| @next/third-parties    | Third-party integration support |
+| axios                  | HTTP client                     |
+| lottie-react           | Animation rendering             |
+| next                   | React framework                 |
+| nodemailer             | Email sending                   |
+| react                  | React library                   |
+| react-dom              | React DOM rendering             |
+| react-fast-marquee     | Marquee animation               |
+| react-icons            | Icon library                    |
+| react-google-recaptcha | Google reCAPTCHA                |
+| react-toastify         | Toast notifications             |
+| sharp                  | Image optimization              |
+| sass                   | CSS preprocessor                |
+| tailwindcss            | Utility-first CSS framework     |
 
 ---
 
-# FAQ:
+# FAQ
 
-### ❓ `next` not recognized?
+## `next` command not recognized?
 
 Run:
 
@@ -236,10 +306,8 @@ Run:
 npm install -g next
 ```
 
-Then use:
+Then start the development server again:
 
 ```bash
 npm run dev
 ```
-
----
