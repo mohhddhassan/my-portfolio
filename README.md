@@ -18,7 +18,7 @@ Deployed using **[Vercel](https://vercel.com/)**.
 
 ## Live Preview
 
-[View Portfolio](https://my-portfolio-git-main-mohamed-hussain-ss-projects.vercel.app/)
+[View Portfolio](https://mohamedhussain.dev)
 
 ---
 
